@@ -13,5 +13,5 @@ jobs:
           ref: main
       - name: Update binder_branch branch so binder points to current master
         run: |
-          git branch -f binder_branch master
+          git branch -f binder_branch main
           git push origin binder_branch
