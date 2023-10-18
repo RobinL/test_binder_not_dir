@@ -1,0 +1,17 @@
+name: test
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+jobs:
+  myjob:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: master
+      - name: Update binder_branch branch so binder points to current master
+        run: |
+          git branch -f binder_branch master
+          git push origin binder_branch
